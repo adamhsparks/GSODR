@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">GSODR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
       </span>
     </div>
 
@@ -121,39 +121,39 @@
 <span class="va">Oz</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">isd_history</span>, <span class="va">COUNTRY_NAME</span> <span class="op">==</span> <span class="st">"AUSTRALIA"</span><span class="op">)</span>
 
 <span class="va">Oz</span></code></pre></div>
-<pre><code>##              STNID                         NAME    LAT   LON CTRY STATE    BEGIN
-##    1: 695023-99999          HORN ISLAND   (HID) -10.58 142.3   AS       19420804
-##    2: 749430-99999           AIDELAIDE RIVER SE -13.30 131.1   AS       19430228
-##    3: 749432-99999    BATCHELOR FIELD AUSTRALIA -13.05 131.1   AS       19421231
-##    4: 749438-99999         IRON RANGE AUSTRALIA -12.70 143.3   AS       19420917
-##    5: 749439-99999     MAREEBA AS/HOEVETT FIELD -17.05 145.4   AS       19420630
-##   ---                                                                           
-## 1044: 959890-99999      BICHENO (COUNCIL DEPOT) -41.87 148.3   AS       19650101
-## 1045: 959950-99999 LORD HOWE ISLAND WINDY POINT -31.53 159.1   AS       20120920
-## 1046: 959970-99999    HEARD ISLAND (ATLAS COVE) -53.02  73.4   AS       19980301
-## 1047: 996600-99999          ENVIRONM BUOY 55011 -40.80 144.3   AS       19930221
-## 1048: 999999-82101               NORTHWEST CAPE -22.33 114.0   AS       19680305
-##            END COUNTRY_NAME ISO2C ISO3C
-##    1: 20030816    AUSTRALIA    AU   AUS
-##    2: 19440821    AUSTRALIA    AU   AUS
-##    3: 19430610    AUSTRALIA    AU   AUS
-##    4: 19440930    AUSTRALIA    AU   AUS
-##    5: 19440630    AUSTRALIA    AU   AUS
-##   ---                                  
-## 1044: 20210115    AUSTRALIA    AU   AUS
-## 1045: 20210116    AUSTRALIA    AU   AUS
-## 1046: 20121220    AUSTRALIA    AU   AUS
-## 1047: 19970403    AUSTRALIA    AU   AUS
-## 1048: 19680430    AUSTRALIA    AU   AUS</code></pre>
+<pre><code>##              STNID                         NAME    LAT   LON CTRY STATE
+##    1: 695023-99999          HORN ISLAND   (HID) -10.58 142.3   AS      
+##    2: 749430-99999           AIDELAIDE RIVER SE -13.30 131.1   AS      
+##    3: 749432-99999    BATCHELOR FIELD AUSTRALIA -13.05 131.1   AS      
+##    4: 749438-99999         IRON RANGE AUSTRALIA -12.70 143.3   AS      
+##    5: 749439-99999     MAREEBA AS/HOEVETT FIELD -17.05 145.4   AS      
+##   ---                                                                  
+## 1044: 959890-99999      BICHENO (COUNCIL DEPOT) -41.87 148.3   AS      
+## 1045: 959950-99999 LORD HOWE ISLAND WINDY POINT -31.53 159.1   AS      
+## 1046: 959970-99999    HEARD ISLAND (ATLAS COVE) -53.02  73.4   AS      
+## 1047: 996600-99999          ENVIRONM BUOY 55011 -40.80 144.3   AS      
+## 1048: 999999-82101               NORTHWEST CAPE -22.33 114.0   AS      
+##          BEGIN      END COUNTRY_NAME ISO2C ISO3C
+##    1: 19420804 20030816    AUSTRALIA    AU   AUS
+##    2: 19430228 19440821    AUSTRALIA    AU   AUS
+##    3: 19421231 19430610    AUSTRALIA    AU   AUS
+##    4: 19420917 19440930    AUSTRALIA    AU   AUS
+##    5: 19420630 19440630    AUSTRALIA    AU   AUS
+##   ---                                           
+## 1044: 19650101 20210115    AUSTRALIA    AU   AUS
+## 1045: 20120920 20210116    AUSTRALIA    AU   AUS
+## 1046: 19980301 20121220    AUSTRALIA    AU   AUS
+## 1047: 19930221 19970403    AUSTRALIA    AU   AUS
+## 1048: 19680305 19680430    AUSTRALIA    AU   AUS</code></pre>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Look for a specific town in Australia</span>
 <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">Oz</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"TOOWOOMBA"</span>, <span class="va">NAME</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>##           STNID              NAME    LAT   LON CTRY STATE    BEGIN      END
-## 1: 945510-99999         TOOWOOMBA -27.58 151.9   AS       19561231 20120503
-## 2: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-##    COUNTRY_NAME ISO2C ISO3C
-## 1:    AUSTRALIA    AU   AUS
-## 2:    AUSTRALIA    AU   AUS</code></pre>
+<pre><code>##           STNID              NAME    LAT   LON CTRY STATE    BEGIN
+## 1: 945510-99999         TOOWOOMBA -27.58 151.9   AS       19561231
+## 2: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+##         END COUNTRY_NAME ISO2C ISO3C
+## 1: 20120503    AUSTRALIA    AU   AUS
+## 2: 20210116    AUSTRALIA    AU   AUS</code></pre>
 </div>
 <div id="download-a-single-station-and-year-using-get_gsod" class="section level2">
 <h2 class="hasAnchor">
@@ -162,17 +162,20 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tbar</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_GSOD.html">get_GSOD</a></span><span class="op">(</span>years <span class="op">=</span> <span class="fl">2010</span>, station <span class="op">=</span> <span class="st">"955510-99999"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">tbar</span><span class="op">)</span></code></pre></div>
-<pre><code>## Classes 'data.table' and 'data.frame':   365 obs. of  44 variables:
+<pre><code>## Classes 'data.table' and 'data.frame':   365 obs. of  47 variables:
 ##  $ STNID           : chr  "955510-99999" "955510-99999" "955510-99999" "955510-99999" ...
 ##  $ NAME            : chr  "TOOWOOMBA AIRPORT" "TOOWOOMBA AIRPORT" "TOOWOOMBA AIRPORT" "TOOWOOMBA AIRPORT" ...
 ##  $ CTRY            : chr  "AS" "AS" "AS" "AS" ...
+##  $ COUNTRY_NAME    : chr  "AUSTRALIA" "AUSTRALIA" "AUSTRALIA" "AUSTRALIA" ...
+##  $ ISO2C           : chr  "AU" "AU" "AU" "AU" ...
+##  $ ISO3C           : chr  "AUS" "AUS" "AUS" "AUS" ...
 ##  $ STATE           : chr  "" "" "" "" ...
 ##  $ LATITUDE        : num  -27.6 -27.6 -27.6 -27.6 -27.6 ...
 ##  $ LONGITUDE       : num  152 152 152 152 152 ...
 ##  $ ELEVATION       : num  642 642 642 642 642 642 642 642 642 642 ...
 ##  $ BEGIN           : int  19980301 19980301 19980301 19980301 19980301 19980301 19980301 19980301 19980301 19980301 ...
 ##  $ END             : int  20210116 20210116 20210116 20210116 20210116 20210116 20210116 20210116 20210116 20210116 ...
-##  $ YEARMODA        : Date, format: "2010-01-01" "2010-01-02" ...
+##  $ YEARMODA        : Date, format: "2010-01-01" ...
 ##  $ YEAR            : int  2010 2010 2010 2010 2010 2010 2010 2010 2010 2010 ...
 ##  $ MONTH           : int  1 1 1 1 1 1 1 1 1 1 ...
 ##  $ DAY             : int  1 2 3 4 5 6 7 8 9 10 ...
@@ -220,17 +223,20 @@
 
 <span class="va">tbar</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_GSOD.html">get_GSOD</a></span><span class="op">(</span>years <span class="op">=</span> <span class="fl">2010</span>, station <span class="op">=</span> <span class="va">tbar_stations</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">tbar</span><span class="op">)</span></code></pre></div>
-<pre><code>## Classes 'data.table' and 'data.frame':   1095 obs. of  44 variables:
+<pre><code>## Classes 'data.table' and 'data.frame':   1095 obs. of  47 variables:
 ##  $ STNID           : chr  "945520-99999" "945520-99999" "945520-99999" "945520-99999" ...
 ##  $ NAME            : chr  "OAKEY" "OAKEY" "OAKEY" "OAKEY" ...
 ##  $ CTRY            : chr  "AS" "AS" "AS" "AS" ...
+##  $ COUNTRY_NAME    : chr  "AUSTRALIA" "AUSTRALIA" "AUSTRALIA" "AUSTRALIA" ...
+##  $ ISO2C           : chr  "AU" "AU" "AU" "AU" ...
+##  $ ISO3C           : chr  "AUS" "AUS" "AUS" "AUS" ...
 ##  $ STATE           : chr  "" "" "" "" ...
 ##  $ LATITUDE        : num  -27.4 -27.4 -27.4 -27.4 -27.4 ...
 ##  $ LONGITUDE       : num  152 152 152 152 152 ...
 ##  $ ELEVATION       : num  407 407 407 407 407 ...
 ##  $ BEGIN           : int  19730430 19730430 19730430 19730430 19730430 19730430 19730430 19730430 19730430 19730430 ...
 ##  $ END             : int  20210116 20210116 20210116 20210116 20210116 20210116 20210116 20210116 20210116 20210116 ...
-##  $ YEARMODA        : Date, format: "2010-01-01" "2010-01-02" ...
+##  $ YEARMODA        : Date, format: "2010-01-01" ...
 ##  $ YEAR            : int  2010 2010 2010 2010 2010 2010 2010 2010 2010 2010 ...
 ##  $ MONTH           : int  1 1 1 1 1 1 1 1 1 1 ...
 ##  $ DAY             : int  1 2 3 4 5 6 7 8 9 10 ...
@@ -339,88 +345,126 @@
 <span class="va">inventory</span></code></pre></div>
 <pre><code>##   *** FEDERAL CLIMATE COMPLEX INTEGRATED SURFACE DATA INVENTORY ***  
 ##    This inventory provides the number of weather observations by  
-##    STATION-YEAR-MONTH for beginning of record through January 2021   
-##                STNID NAME LAT LON CTRY STATE BEGIN END COUNTRY_NAME ISO2C ISO3C YEAR
-##      1: 007018-99999 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 2011
-##      2: 007018-99999 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 2013
-##      3: 007026-99999 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 2012
-##      4: 007026-99999 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 2014
-##      5: 007026-99999 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 2016
-##     ---                                                                             
-## 656077:   A51256-451 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 2017
-## 656078:   A51256-451 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 2018
-## 656079:   A51256-451 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 2019
-## 656080:   A51256-451 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 2020
-## 656081:   A51256-451 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 2021
-##          JAN  FEB  MAR  APR  MAY  JUN  JUL  AUG  SEP  OCT  NOV  DEC
-##      1:    0    0 2104 2797 2543 2614  382    0    0    0    0    0
-##      2:    0    0    0    0    0    0  710    0    0    0    0    0
-##      3:    0    0    0    0    0    0  367    0    0    0    0    7
-##      4:    0    0    0    0    0    0  180    0    4    0  552    0
-##      5:    0    0    0    0    0  794    0    0    0    0    0    0
+##    STATION-YEAR-MONTH for beginning of record through March 2021   
+##                STNID NAME LAT LON CTRY STATE BEGIN END COUNTRY_NAME
+##      1: 007018-99999 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;
+##      2: 007018-99999 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;
+##      3: 007026-99999 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;
+##      4: 007026-99999 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;
+##      5: 007026-99999 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;
 ##     ---                                                            
-## 656077: 2192 1883 2204 1910 2145 2113 2218 2204 2082 2192 2103 2174
-## 656078: 2192 1887 2194 2113 2151 2095 2202 2197 1816 2195 2063 2178
-## 656079: 2188 2000 2143 2105 2187 2124 2184 2138 2077 1872 1508 2159
-## 656080: 2165 1455 2144 2125 2199 2123 2112 2192 2083 2079 2074 2148
-## 656081: 1297    0    0    0    0    0    0    0    0    0    0    0</code></pre>
+## 656860:   A51256-451 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;
+## 656861:   A51256-451 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;
+## 656862:   A51256-451 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;
+## 656863:   A51256-451 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;
+## 656864:   A51256-451 &lt;NA&gt;  NA  NA &lt;NA&gt;  &lt;NA&gt;    NA  NA         &lt;NA&gt;
+##         ISO2C ISO3C YEAR  JAN  FEB  MAR  APR  MAY  JUN  JUL  AUG  SEP
+##      1:  &lt;NA&gt;  &lt;NA&gt; 2011    0    0 2104 2797 2543 2614  382    0    0
+##      2:  &lt;NA&gt;  &lt;NA&gt; 2013    0    0    0    0    0    0  710    0    0
+##      3:  &lt;NA&gt;  &lt;NA&gt; 2012    0    0    0    0    0    0  367    0    0
+##      4:  &lt;NA&gt;  &lt;NA&gt; 2014    0    0    0    0    0    0  180    0    4
+##      5:  &lt;NA&gt;  &lt;NA&gt; 2016    0    0    0    0    0  794    0    0    0
+##     ---                                                              
+## 656860:  &lt;NA&gt;  &lt;NA&gt; 2017 2192 1883 2204 1910 2145 2113 2218 2204 2082
+## 656861:  &lt;NA&gt;  &lt;NA&gt; 2018 2192 1887 2194 2113 2151 2095 2202 2197 1816
+## 656862:  &lt;NA&gt;  &lt;NA&gt; 2019 2188 2000 2143 2105 2187 2124 2184 2138 2077
+## 656863:  &lt;NA&gt;  &lt;NA&gt; 2020 2165 1455 2144 2125 2199 2123 2112 2192 2083
+## 656864:  &lt;NA&gt;  &lt;NA&gt; 2021 2085 1992 1102    0    0    0    0    0    0
+##          OCT  NOV  DEC
+##      1:    0    0    0
+##      2:    0    0    0
+##      3:    0    0    7
+##      4:    0  552    0
+##      5:    0    0    0
+##     ---               
+## 656860: 2192 2103 2174
+## 656861: 2195 2063 2178
+## 656862: 1872 1508 2159
+## 656863: 2079 2074 2187
+## 656864:    0    0    0</code></pre>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">inventory</span>, <span class="va">STNID</span> <span class="op">%in%</span> <span class="st">"955510-99999"</span><span class="op">)</span></code></pre></div>
 <pre><code>##   *** FEDERAL CLIMATE COMPLEX INTEGRATED SURFACE DATA INVENTORY ***  
 ##    This inventory provides the number of weather observations by  
-##    STATION-YEAR-MONTH for beginning of record through January 2021   
-##            STNID              NAME    LAT   LON CTRY STATE    BEGIN      END
-##  1: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-##  2: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-##  3: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-##  4: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-##  5: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-##  6: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-##  7: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-##  8: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-##  9: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 10: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 11: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 12: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 13: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 14: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 15: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 16: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 17: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 18: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 19: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 20: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 21: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 22: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 23: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-## 24: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301 20210116
-##            STNID              NAME    LAT   LON CTRY STATE    BEGIN      END
-##     COUNTRY_NAME ISO2C ISO3C YEAR JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC
-##  1:    AUSTRALIA    AU   AUS 1998   0   0 222 223 221 211 226 217 222 234 215 230
-##  2:    AUSTRALIA    AU   AUS 1999 213 201 235 224 244 229 239 247 236 246 233 243
-##  3:    AUSTRALIA    AU   AUS 2000 241 227 247 238 246 237 245 240 236 248 239 248
-##  4:    AUSTRALIA    AU   AUS 2001 245 223 246 238 239 236 243 240 237 236 235 246
-##  5:    AUSTRALIA    AU   AUS 2002 245 219 246 236 243 229 243 246 227 238 233 246
-##  6:    AUSTRALIA    AU   AUS 2003 244 217 220 232 235 233 246 242 218 239 225 245
-##  7:    AUSTRALIA    AU   AUS 2004 240 227 241 229 233 224 235 244 235 244 235 245
-##  8:    AUSTRALIA    AU   AUS 2005 241 221 242 240 247 239 247 247 234 242 239 246
-##  9:    AUSTRALIA    AU   AUS 2006 245 223 246 232 241 238 247 247 239 247 240 247
-## 10:    AUSTRALIA    AU   AUS 2007 247 222 244 240 248 240 244 244 239 247 237 246
-## 11:    AUSTRALIA    AU   AUS 2008 247 228 248 239 248 239 248 247 239 247 238 248
-## 12:    AUSTRALIA    AU   AUS 2009 245 222 246 235 244 237 248 248 239 248 239 248
-## 13:    AUSTRALIA    AU   AUS 2010 248 223 248 240 244 240 242 247 240 248 240 247
-## 14:    AUSTRALIA    AU   AUS 2011 247 224 247 240 247 240 248 247 239 248 239 248
-## 15:    AUSTRALIA    AU   AUS 2012 248 232 248 240 248 240 248 247 240 248 240 245
-## 16:    AUSTRALIA    AU   AUS 2013 236 220 247 233 248 239 252 247 238 248 239 246
-## 17:    AUSTRALIA    AU   AUS 2014 243 224 247 240 246 239 246 247 240 247 240 248
-## 18:    AUSTRALIA    AU   AUS 2015 248 222 248  72 247 240 247 248 239 247 238 247
-## 19:    AUSTRALIA    AU   AUS 2016 246 228 245 240 246 240 248 248 238 248 239 248
-## 20:    AUSTRALIA    AU   AUS 2017 247 224 248 240 248 239 248 247 239 248 240 248
-## 21:    AUSTRALIA    AU   AUS 2018 248 224 248 239 248 240 247 248 239 246 240 248
-## 22:    AUSTRALIA    AU   AUS 2019 247 224 246 240 248 240 248 248 240 248 239 248
-## 23:    AUSTRALIA    AU   AUS 2020 246 232 248 238 248 348 493 492 480 496 475 496
-## 24:    AUSTRALIA    AU   AUS 2021 284   0   0   0   0   0   0   0   0   0   0   0
-##     COUNTRY_NAME ISO2C ISO3C YEAR JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC</code></pre>
+##    STATION-YEAR-MONTH for beginning of record through March 2021   
+##            STNID              NAME    LAT   LON CTRY STATE    BEGIN
+##  1: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+##  2: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+##  3: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+##  4: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+##  5: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+##  6: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+##  7: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+##  8: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+##  9: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 10: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 11: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 12: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 13: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 14: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 15: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 16: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 17: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 18: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 19: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 20: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 21: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 22: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 23: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+## 24: 955510-99999 TOOWOOMBA AIRPORT -27.55 151.9   AS       19980301
+##            STNID              NAME    LAT   LON CTRY STATE    BEGIN
+##          END COUNTRY_NAME ISO2C ISO3C YEAR JAN FEB MAR APR MAY JUN JUL
+##  1: 20210116    AUSTRALIA    AU   AUS 1998   0   0 222 223 221 211 226
+##  2: 20210116    AUSTRALIA    AU   AUS 1999 213 201 235 224 244 229 239
+##  3: 20210116    AUSTRALIA    AU   AUS 2000 241 227 247 238 246 237 245
+##  4: 20210116    AUSTRALIA    AU   AUS 2001 245 223 246 238 239 236 243
+##  5: 20210116    AUSTRALIA    AU   AUS 2002 245 219 246 236 243 229 243
+##  6: 20210116    AUSTRALIA    AU   AUS 2003 244 217 220 232 235 233 246
+##  7: 20210116    AUSTRALIA    AU   AUS 2004 240 227 241 229 233 224 235
+##  8: 20210116    AUSTRALIA    AU   AUS 2005 241 221 242 240 247 239 247
+##  9: 20210116    AUSTRALIA    AU   AUS 2006 245 223 246 232 241 238 247
+## 10: 20210116    AUSTRALIA    AU   AUS 2007 247 222 244 240 248 240 244
+## 11: 20210116    AUSTRALIA    AU   AUS 2008 247 228 248 239 248 239 248
+## 12: 20210116    AUSTRALIA    AU   AUS 2009 245 222 246 235 244 237 248
+## 13: 20210116    AUSTRALIA    AU   AUS 2010 248 223 248 240 244 240 242
+## 14: 20210116    AUSTRALIA    AU   AUS 2011 247 224 247 240 247 240 248
+## 15: 20210116    AUSTRALIA    AU   AUS 2012 248 232 248 240 248 240 248
+## 16: 20210116    AUSTRALIA    AU   AUS 2013 236 220 247 233 248 239 252
+## 17: 20210116    AUSTRALIA    AU   AUS 2014 243 224 247 240 246 239 246
+## 18: 20210116    AUSTRALIA    AU   AUS 2015 248 222 248 239 247 240 247
+## 19: 20210116    AUSTRALIA    AU   AUS 2016 246 228 245 240 246 240 248
+## 20: 20210116    AUSTRALIA    AU   AUS 2017 247 224 248 240 248 239 248
+## 21: 20210116    AUSTRALIA    AU   AUS 2018 248 224 248 239 248 240 247
+## 22: 20210116    AUSTRALIA    AU   AUS 2019 247 224 246 240 248 240 248
+## 23: 20210116    AUSTRALIA    AU   AUS 2020 246 232 248 238 248 348 493
+## 24: 20210116    AUSTRALIA    AU   AUS 2021 485 483 357   0   0   0   0
+##          END COUNTRY_NAME ISO2C ISO3C YEAR JAN FEB MAR APR MAY JUN JUL
+##     AUG SEP OCT NOV DEC
+##  1: 217 222 234 215 230
+##  2: 247 236 246 233 243
+##  3: 240 236 248 239 248
+##  4: 240 237 236 235 246
+##  5: 246 227 238 233 246
+##  6: 242 218 239 225 245
+##  7: 244 235 244 235 245
+##  8: 247 234 242 239 246
+##  9: 247 239 247 240 247
+## 10: 244 239 247 237 246
+## 11: 247 239 247 238 248
+## 12: 248 239 248 239 248
+## 13: 247 240 248 240 247
+## 14: 247 239 248 239 248
+## 15: 247 240 248 240 245
+## 16: 247 238 248 239 246
+## 17: 247 240 247 240 248
+## 18: 248 239 247 238 247
+## 19: 248 238 248 239 248
+## 20: 247 239 248 240 248
+## 21: 248 239 246 240 248
+## 22: 248 240 248 239 248
+## 23: 492 480 496 475 496
+## 24:   0   0   0   0   0
+##     AUG SEP OCT NOV DEC</code></pre>
 </div>
 <div id="notes" class="section level1">
 <h1 class="hasAnchor">
@@ -428,9 +472,9 @@
 <div id="wmo-resolution-40--noaa-policy" class="section level2">
 <h2 class="hasAnchor">
 <a href="#wmo-resolution-40--noaa-policy" class="anchor"></a>WMO Resolution 40. NOAA Policy</h2>
-<p><em>Users of these data should take into account the following (from the <a href="https://www7.ncdc.noaa.gov/CDO/cdoselect.cmd?datasetabbv=GSOD&amp;countryabbv=&amp;georegionabbv=">NCEI website</a>):</em></p>
+<p><em>Users of these data should take into account the following (from the <a href="https://www7.ncdc.noaa.gov/CDO/cdoselect.cmd?datasetabbv=GSOD&amp;countryabbv=&amp;georegionabbv=">NCEI website</a>): </em></p>
 <blockquote>
-<p>“The following data and products may have conditions placed on their international commercial use. They can be used within the U.S. or for non-commercial international activities without restriction. The non-U.S. data cannot be redistributed for commercial purposes. Re-distribution of these data by others must provide this same notification.” <a href="https://public.wmo.int/en/our-mandate/what-we-do/data-exchange-and-technology-transfer">WMO Resolution 40. NOAA Policy</a></p>
+<p>The following data and products may have conditions placed on their international commercial use. They can be used within the U.S. or for non-commercial international activities without restriction. The non-U.S. data cannot be redistributed for commercial purposes. Re-distribution of these data by others must provide this same notification. A log of IP addresses accessing these data and products will be maintained and may be made available to data providers. For details, please consult: <a href="https://community.wmo.int/resolution-40">WMO Resolution 40. NOAA Policy</a></p>
 </blockquote>
 </div>
 </div>
@@ -444,11 +488,14 @@
 <ul>
 <li><p><strong>STNID</strong> - Station number (WMO/DATSAV3 number) for the location;</p></li>
 <li><p><strong>NAME</strong> - Unique text identifier;</p></li>
-<li><p><strong>CTRY</strong> - Country in which the station is located;</p></li>
+<li><p><strong>CTRY</strong> - Country in which the station is located. This field is the original FIPS code that NCEI provides;</p></li>
+<li><p><strong>COUNTRY_NAME</strong> - Country in which the station is located. This field is the country name in English language;</p></li>
+<li><p><strong>ISO2C</strong> - Country in which the station is located. This field is the two letter ISO country code;</p></li>
+<li><p><strong>ISO3C</strong> - Country in which the station is located. This field is the three letter ISO country code;</p></li>
 <li><p><strong>LAT</strong> - Latitude. <em>Station dropped in cases where values are &lt; -90 or &gt; 90 degrees or Lat = 0 and Lon = 0</em>;</p></li>
 <li><p><strong>LON</strong> - Longitude. <em>Station dropped in cases where values are &lt; -180 or &gt; 180 degrees or Lat = 0 and Lon = 0</em>;</p></li>
 <li><p><strong>ELEVATION</strong> - Elevation in metres;</p></li>
-<li><p><strong>YEARMODA</strong> - Date in YYYY-mm-dd format;</p></li>
+<li><p><strong>YEARMODA</strong> - Date in YYYYMMDD format;</p></li>
 <li><p><strong>YEAR</strong> - The year (YYYY);</p></li>
 <li><p><strong>MONTH</strong> - The month (mm);</p></li>
 <li><p><strong>DAY</strong> - The day (dd);</p></li>
@@ -526,7 +573,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Adam Sparks, Tomislav Hengl, Andrew Nelson.</p>
+  <p>Developed by Adam H. Sparks, Tomislav Hengl, Andrew Nelson.</p>
 </div>
 
 <div class="pkgdown">

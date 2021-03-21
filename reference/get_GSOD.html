@@ -86,7 +86,7 @@ in the final data frame using the improved August-Roche-Magnus approximation
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">GSODR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
       </span>
     </div>
 
@@ -160,30 +160,30 @@ in the final data frame using the improved August-Roche-Magnus approximation
     </tr>
     <tr>
       <th>station</th>
-      <td><p>Optional. Specify a station or multiple stations for which to
-retrieve, check and clean weather data using <var>STATION</var>. The
-<acronym>NCEI</acronym> reports years for which the data are available. This function
-checks against these years. However, not all cases are properly documented
+      <td><p>Optional.  Specify a station or multiple stations for which to
+retrieve, check and clean weather data using <var>STATION</var>.  The
+<acronym>NCEI</acronym> reports years for which the data are available.  This function
+checks against these years.  However, not all cases are properly documented
 and in some cases files may not exist for download even though it is
-indicated that data was recorded for the station for a particular year. If a
+indicated that data was recorded for the station for a particular year.  If a
 station is specified that does not have an existing file on the server, this
 function will silently fail and move on to existing files for download and
 cleaning.</p></td>
     </tr>
     <tr>
       <th>country</th>
-      <td><p>Optional. Specify a country for which to retrieve weather
+      <td><p>Optional.  Specify a country for which to retrieve weather
 data; full name, 2 or 3 letter <acronym>ISO</acronym> or 2 letter <acronym>FIPS</acronym> codes
-can be used. All stations within the specified country will be returned.</p></td>
+can be used.  All stations within the specified country will be returned.</p></td>
     </tr>
     <tr>
       <th>max_missing</th>
-      <td><p>Optional. The maximum number of days allowed to be missing
+      <td><p>Optional.  The maximum number of days allowed to be missing
 from a station's data before it is excluded from final file output.</p></td>
     </tr>
     <tr>
       <th>agroclimatology</th>
-      <td><p>Optional. Logical. Only clean data for stations
+      <td><p>Optional.  Logical.  Only clean data for stations
 between latitudes 60 and -60 for agroclimatology work, defaults to `FALSE`.
 Set to `TRUE` to include only stations within the confines of these
 latitudes.</p></td>
@@ -211,18 +211,20 @@ please refer to Appendix 1 in the <a href='https://CRAN.R-project.org/package=GS
 
     <p><span class="pkg">GSODR</span> attempts to validate year and station combination requests,
 however, in certain cases the start and end date may encompass years where
-no data is available. In these cases no data will be returned. It is
+no data is available.  In these cases no data will be returned.  It is
 suggested that the user check the latest data availability for the station(s)
 desired using <a href='get_inventory.html'>get_inventory</a> as this list is frequently updated by the
 <acronym>NCEI</acronym> and is not shipped with <span class="pkg">GSODR</span>.</p>
 <p>While <span class="pkg">GSODR</span> does not distribute GSOD weather data, users of
 the data should note the conditions that the U.S. <acronym>NCEI</acronym> places upon
 the <acronym>GSOD</acronym> data.
-&#8220;The following data and products may have conditions placed on
-their international commercial use.  They can be used within the U.S. or for
-non-commercial international activities without restriction. The non-U.S.
-data cannot be redistributed for commercial purposes.  Re-distribution of
-these data by others must provide this same notification.&#8221;</p>
+&#8220;The following data and products may have conditions placed on their
+ international commercial use.  They can be used within the U.S. or for non-
+ commercial international activities without restriction.  The non-U.S. data
+ cannot be redistributed for commercial purposes.  Re-distribution of these
+ data by others must provide this same notification.  A log of IP addresses
+ accessing these data and products will be maintained and may be made
+ available to data providers.&#8221;</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     
@@ -241,158 +243,228 @@ of saturation vapor pressure. Journal of Applied Meteorology and Climatology,
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='co'># Download weather station for Toowoomba, Queensland for 2010</span>
-<span class='va'>tbar</span> <span class='op'>&lt;-</span> <span class='fu'>get_GSOD</span><span class='op'>(</span>years <span class='op'>=</span> <span class='fl'>2010</span>, station <span class='op'>=</span> <span class='st'>"955510-99999"</span><span class='op'>)</span>
-
-<span class='va'>tbar</span>
-</div><div class='output co'>#&gt;             STNID              NAME CTRY STATE LATITUDE LONGITUDE ELEVATION
-#&gt;   1: 955510-99999 TOOWOOMBA AIRPORT   AS         -27.55   151.917       642
-#&gt;   2: 955510-99999 TOOWOOMBA AIRPORT   AS         -27.55   151.917       642
-#&gt;   3: 955510-99999 TOOWOOMBA AIRPORT   AS         -27.55   151.917       642
-#&gt;   4: 955510-99999 TOOWOOMBA AIRPORT   AS         -27.55   151.917       642
-#&gt;   5: 955510-99999 TOOWOOMBA AIRPORT   AS         -27.55   151.917       642
-#&gt;  ---                                                                       
-#&gt; 361: 955510-99999 TOOWOOMBA AIRPORT   AS         -27.55   151.917       642
-#&gt; 362: 955510-99999 TOOWOOMBA AIRPORT   AS         -27.55   151.917       642
-#&gt; 363: 955510-99999 TOOWOOMBA AIRPORT   AS         -27.55   151.917       642
-#&gt; 364: 955510-99999 TOOWOOMBA AIRPORT   AS         -27.55   151.917       642
-#&gt; 365: 955510-99999 TOOWOOMBA AIRPORT   AS         -27.55   151.917       642
-#&gt;         BEGIN      END   YEARMODA YEAR MONTH DAY YDAY TEMP TEMP_ATTRIBUTES DEWP
-#&gt;   1: 19980301 20210116 2010-01-01 2010     1   1    1 21.2               8 17.9
-#&gt;   2: 19980301 20210116 2010-01-02 2010     1   2    2 23.2               8 19.4
-#&gt;   3: 19980301 20210116 2010-01-03 2010     1   3    3 21.4               8 18.9
-#&gt;   4: 19980301 20210116 2010-01-04 2010     1   4    4 18.9               8 16.4
-#&gt;   5: 19980301 20210116 2010-01-05 2010     1   5    5 20.5               8 16.4
-#&gt;  ---                                                                           
-#&gt; 361: 19980301 20210116 2010-12-27 2010    12  27  361 18.9               8 17.3
-#&gt; 362: 19980301 20210116 2010-12-28 2010    12  28  362 17.7               8 14.7
-#&gt; 363: 19980301 20210116 2010-12-29 2010    12  29  363 19.8               8 15.4
-#&gt; 364: 19980301 20210116 2010-12-30 2010    12  30  364 21.4               8 16.1
-#&gt; 365: 19980301 20210116 2010-12-31 2010    12  31  365 21.1               8 15.7
-#&gt;      DEWP_ATTRIBUTES    SLP SLP_ATTRIBUTES   STP STP_ATTRIBUTES VISIB
-#&gt;   1:               8 1013.4              8 942.0              8    NA
-#&gt;   2:               8 1010.5              8 939.3              8    NA
-#&gt;   3:               8 1012.3              8 940.9              8  14.3
-#&gt;   4:               8 1015.7              8 944.1              8  23.3
-#&gt;   5:               8 1015.5              8 944.0              8    NA
-#&gt;  ---                                                                 
-#&gt; 361:               8 1005.8              8 934.8              8  25.3
-#&gt; 362:               8 1013.2              8 941.6              8    NA
-#&gt; 363:               8 1014.4              8 942.7              8    NA
-#&gt; 364:               8 1014.6              8 942.9              8    NA
-#&gt; 365:               8 1013.9              8 942.3              8    NA
-#&gt;      VISIB_ATTRIBUTES WDSP WDSP_ATTRIBUTES MXSPD GUST  MAX MAX_ATTRIBUTES  MIN
-#&gt;   1:                0  4.3               8   6.7   NA 25.8           &lt;NA&gt; 17.8
-#&gt;   2:                0  3.7               8   5.1   NA 26.5           &lt;NA&gt; 19.1
-#&gt;   3:                6  7.6               8  10.3   NA 28.7           &lt;NA&gt; 19.3
-#&gt;   4:                4  8.7               8  10.3   NA 24.1           &lt;NA&gt; 16.9
-#&gt;   5:                0  7.5               8  10.8   NA 24.6           &lt;NA&gt; 16.7
-#&gt;  ---                                                                          
-#&gt; 361:                5  7.2               8  11.8   NA 22.1           &lt;NA&gt; 17.9
-#&gt; 362:                0 11.2               8  14.4   NA 21.5           &lt;NA&gt; 15.4
-#&gt; 363:                0  6.6               8   9.3   NA 24.0           &lt;NA&gt; 15.0
-#&gt; 364:                0  7.2               8   9.3   NA 26.5           &lt;NA&gt; 15.0
-#&gt; 365:                0  7.5               8   9.3   NA 26.5           &lt;NA&gt; 16.5
-#&gt;      MIN_ATTRIBUTES PRCP PRCP_ATTRIBUTES SNDP I_FOG I_RAIN_DRIZZLE I_SNOW_ICE
-#&gt;   1:           &lt;NA&gt;  1.5               G   NA    NA             NA         NA
-#&gt;   2:           &lt;NA&gt;  0.3               G   NA    NA             NA         NA
-#&gt;   3:              * 19.8               G   NA    NA             NA         NA
-#&gt;   4:              *  1.0               G   NA    NA             NA         NA
-#&gt;   5:           &lt;NA&gt;  0.3               G   NA    NA             NA         NA
+<span class='co'># Download weather station data for Toowoomba, Queensland for 2010</span>
+<span class='op'>(</span><span class='va'>tbar</span> <span class='op'>&lt;-</span> <span class='fu'>get_GSOD</span><span class='op'>(</span>years <span class='op'>=</span> <span class='fl'>2010</span>, station <span class='op'>=</span> <span class='st'>"955510-99999"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;             STNID              NAME CTRY COUNTRY_NAME ISO2C ISO3C STATE
+#&gt;   1: 955510-99999 TOOWOOMBA AIRPORT   AS    AUSTRALIA    AU   AUS      
+#&gt;   2: 955510-99999 TOOWOOMBA AIRPORT   AS    AUSTRALIA    AU   AUS      
+#&gt;   3: 955510-99999 TOOWOOMBA AIRPORT   AS    AUSTRALIA    AU   AUS      
+#&gt;   4: 955510-99999 TOOWOOMBA AIRPORT   AS    AUSTRALIA    AU   AUS      
+#&gt;   5: 955510-99999 TOOWOOMBA AIRPORT   AS    AUSTRALIA    AU   AUS      
+#&gt;  ---                                                                   
+#&gt; 361: 955510-99999 TOOWOOMBA AIRPORT   AS    AUSTRALIA    AU   AUS      
+#&gt; 362: 955510-99999 TOOWOOMBA AIRPORT   AS    AUSTRALIA    AU   AUS      
+#&gt; 363: 955510-99999 TOOWOOMBA AIRPORT   AS    AUSTRALIA    AU   AUS      
+#&gt; 364: 955510-99999 TOOWOOMBA AIRPORT   AS    AUSTRALIA    AU   AUS      
+#&gt; 365: 955510-99999 TOOWOOMBA AIRPORT   AS    AUSTRALIA    AU   AUS      
+#&gt;      LATITUDE LONGITUDE ELEVATION    BEGIN      END   YEARMODA YEAR MONTH DAY
+#&gt;   1:   -27.55   151.917       642 19980301 20210116 2010-01-01 2010     1   1
+#&gt;   2:   -27.55   151.917       642 19980301 20210116 2010-01-02 2010     1   2
+#&gt;   3:   -27.55   151.917       642 19980301 20210116 2010-01-03 2010     1   3
+#&gt;   4:   -27.55   151.917       642 19980301 20210116 2010-01-04 2010     1   4
+#&gt;   5:   -27.55   151.917       642 19980301 20210116 2010-01-05 2010     1   5
 #&gt;  ---                                                                         
-#&gt; 361:              * 42.9               G   NA    NA             NA         NA
-#&gt; 362:              *  0.3               G   NA    NA             NA         NA
-#&gt; 363:           &lt;NA&gt;  0.0               G   NA    NA             NA         NA
-#&gt; 364:           &lt;NA&gt;  0.0               G   NA    NA             NA         NA
-#&gt; 365:           &lt;NA&gt;  0.0               G   NA    NA             NA         NA
-#&gt;      I_HAIL I_THUNDER I_TORNADO_FUNNEL  EA  ES   RH
-#&gt;   1:     NA        NA               NA 2.0 2.5 81.5
-#&gt;   2:     NA        NA               NA 2.2 2.8 79.2
-#&gt;   3:     NA        NA               NA 2.2 2.5 85.7
-#&gt;   4:     NA        NA               NA 1.9 2.2 85.4
-#&gt;   5:     NA        NA               NA 1.9 2.4 77.3
-#&gt;  ---                                               
-#&gt; 361:     NA        NA               NA 2.0 2.2 90.4
-#&gt; 362:     NA        NA               NA 1.7 2.0 82.6
-#&gt; 363:     NA        NA               NA 1.7 2.3 75.8
-#&gt; 364:     NA        NA               NA 1.8 2.5 71.8
-#&gt; 365:     NA        NA               NA 1.8 2.5 71.3</div><div class='input'>
-<span class='co'># Download data for Australia from 2010 to 2011</span>
-<span class='va'>AUS</span> <span class='op'>&lt;-</span> <span class='fu'>get_GSOD</span><span class='op'>(</span>years <span class='op'>=</span> <span class='fl'>2010</span><span class='op'>:</span><span class='fl'>2011</span>, country <span class='op'>=</span> <span class='st'>"Australia"</span><span class='op'>)</span>
-
-<span class='va'>AUS</span>
-</div><div class='output co'>#&gt;                STNID                      NAME CTRY STATE LATITUDE LONGITUDE
-#&gt;      1: 941030-99999         BROWSE ISLAND AWS   AS        -14.117   123.533
-#&gt;      2: 941030-99999         BROWSE ISLAND AWS   AS        -14.117   123.533
-#&gt;      3: 941030-99999         BROWSE ISLAND AWS   AS        -14.117   123.533
-#&gt;      4: 941030-99999         BROWSE ISLAND AWS   AS        -14.117   123.533
-#&gt;      5: 941030-99999         BROWSE ISLAND AWS   AS        -14.117   123.533
-#&gt;     ---                                                                     
-#&gt; 185297: 959970-99999 HEARD ISLAND (ATLAS COVE)   AS        -53.017    73.400
-#&gt; 185298: 959970-99999 HEARD ISLAND (ATLAS COVE)   AS        -53.017    73.400
-#&gt; 185299: 959970-99999 HEARD ISLAND (ATLAS COVE)   AS        -53.017    73.400
-#&gt; 185300: 959970-99999 HEARD ISLAND (ATLAS COVE)   AS        -53.017    73.400
-#&gt; 185301: 959970-99999 HEARD ISLAND (ATLAS COVE)   AS        -53.017    73.400
-#&gt;         ELEVATION    BEGIN      END   YEARMODA YEAR MONTH DAY YDAY TEMP
-#&gt;      1:         5 19730101 20210116 2010-01-01 2010     1   1    1 29.9
-#&gt;      2:         5 19730101 20210116 2010-01-02 2010     1   2    2 29.9
-#&gt;      3:         5 19730101 20210116 2010-01-03 2010     1   3    3 29.7
-#&gt;      4:         5 19730101 20210116 2010-01-04 2010     1   4    4 29.8
-#&gt;      5:         5 19730101 20210116 2010-01-05 2010     1   5    5 29.8
-#&gt;     ---                                                                
-#&gt; 185297:         4 19980301 20121220 2011-12-27 2011    12  27  361  2.2
-#&gt; 185298:         4 19980301 20121220 2011-12-28 2011    12  28  362  2.9
-#&gt; 185299:         4 19980301 20121220 2011-12-29 2011    12  29  363  2.4
-#&gt; 185300:         4 19980301 20121220 2011-12-30 2011    12  30  364  2.3
-#&gt; 185301:         4 19980301 20121220 2011-12-31 2011    12  31  365  2.7
-#&gt;         TEMP_ATTRIBUTES DEWP DEWP_ATTRIBUTES    SLP SLP_ATTRIBUTES   STP
-#&gt;      1:               8   NA               0     NA              0    NA
-#&gt;      2:               9   NA               0     NA              0    NA
-#&gt;      3:               9   NA               0     NA              0    NA
-#&gt;      4:               7   NA               0     NA              0    NA
-#&gt;      5:              12   NA               0     NA              0    NA
-#&gt;     ---                                                                 
-#&gt; 185297:              24   NA               0  993.1             24 992.7
-#&gt; 185298:              24   NA               0  990.7             24 990.3
-#&gt; 185299:              24   NA               0  982.7             24 982.3
-#&gt; 185300:              23   NA               0 1000.7             23   0.3
-#&gt; 185301:              24   NA               0 1012.3             24  11.9
-#&gt;         STP_ATTRIBUTES VISIB VISIB_ATTRIBUTES WDSP WDSP_ATTRIBUTES MXSPD GUST
-#&gt;      1:              0    NA                0  6.1               8   7.2   NA
-#&gt;      2:              0    NA                0  5.6               9   7.2   NA
-#&gt;      3:              0    NA                0  7.5               9  10.3   NA
-#&gt;      4:              0    NA                0  9.3               7  10.3   NA
-#&gt;      5:              0    NA                0  8.8              12  10.8   NA
-#&gt;     ---                                                                      
-#&gt; 185297:             24    NA                0   NA               0    NA   NA
-#&gt; 185298:             24    NA                0   NA               0    NA   NA
-#&gt; 185299:             24    NA                0   NA               0    NA   NA
-#&gt; 185300:             23    NA                0   NA               0    NA   NA
-#&gt; 185301:             24    NA                0   NA               0    NA   NA
-#&gt;          MAX MAX_ATTRIBUTES  MIN MIN_ATTRIBUTES PRCP PRCP_ATTRIBUTES SNDP I_FOG
-#&gt;      1: 30.3              * 29.1              *    0               I   NA    NA
-#&gt;      2: 30.5              * 28.6              *    0               I   NA    NA
-#&gt;      3: 30.5              * 29.3              *    0               I   NA    NA
-#&gt;      4: 30.0              * 29.5              *    0               I   NA    NA
-#&gt;      5: 30.4              * 29.3              *    0               I   NA    NA
-#&gt;     ---                                                                        
-#&gt; 185297:  4.4              *  0.6              *    0               I   NA    NA
-#&gt; 185298:  4.7              *  1.5              *    0               I   NA    NA
-#&gt; 185299:  4.6              *  0.3              *    0               I   NA    NA
-#&gt; 185300:  3.5              *  0.3              *    0               I   NA    NA
-#&gt; 185301:  5.2              *  0.0              *    0               I   NA    NA
-#&gt;         I_RAIN_DRIZZLE I_SNOW_ICE I_HAIL I_THUNDER I_TORNADO_FUNNEL EA  ES RH
-#&gt;      1:             NA         NA     NA        NA               NA NA 4.2 NA
-#&gt;      2:             NA         NA     NA        NA               NA NA 4.2 NA
-#&gt;      3:             NA         NA     NA        NA               NA NA 4.2 NA
-#&gt;      4:             NA         NA     NA        NA               NA NA 4.2 NA
-#&gt;      5:             NA         NA     NA        NA               NA NA 4.2 NA
-#&gt;     ---                                                                      
-#&gt; 185297:             NA         NA     NA        NA               NA NA 0.7 NA
-#&gt; 185298:             NA         NA     NA        NA               NA NA 0.8 NA
-#&gt; 185299:             NA         NA     NA        NA               NA NA 0.7 NA
-#&gt; 185300:             NA         NA     NA        NA               NA NA 0.7 NA
-#&gt; 185301:             NA         NA     NA        NA               NA NA 0.7 NA</div><div class='input'><span class='co'># }</span>
+#&gt; 361:   -27.55   151.917       642 19980301 20210116 2010-12-27 2010    12  27
+#&gt; 362:   -27.55   151.917       642 19980301 20210116 2010-12-28 2010    12  28
+#&gt; 363:   -27.55   151.917       642 19980301 20210116 2010-12-29 2010    12  29
+#&gt; 364:   -27.55   151.917       642 19980301 20210116 2010-12-30 2010    12  30
+#&gt; 365:   -27.55   151.917       642 19980301 20210116 2010-12-31 2010    12  31
+#&gt;      YDAY TEMP TEMP_ATTRIBUTES DEWP DEWP_ATTRIBUTES    SLP SLP_ATTRIBUTES   STP
+#&gt;   1:    1 21.2               8 17.9               8 1013.4              8 942.0
+#&gt;   2:    2 23.2               8 19.4               8 1010.5              8 939.3
+#&gt;   3:    3 21.4               8 18.9               8 1012.3              8 940.9
+#&gt;   4:    4 18.9               8 16.4               8 1015.7              8 944.1
+#&gt;   5:    5 20.5               8 16.4               8 1015.5              8 944.0
+#&gt;  ---                                                                           
+#&gt; 361:  361 18.9               8 17.3               8 1005.8              8 934.8
+#&gt; 362:  362 17.7               8 14.7               8 1013.2              8 941.6
+#&gt; 363:  363 19.8               8 15.4               8 1014.4              8 942.7
+#&gt; 364:  364 21.4               8 16.1               8 1014.6              8 942.9
+#&gt; 365:  365 21.1               8 15.7               8 1013.9              8 942.3
+#&gt;      STP_ATTRIBUTES VISIB VISIB_ATTRIBUTES WDSP WDSP_ATTRIBUTES MXSPD GUST  MAX
+#&gt;   1:              8    NA                0  4.3               8   6.7   NA 25.8
+#&gt;   2:              8    NA                0  3.7               8   5.1   NA 26.5
+#&gt;   3:              8  14.3                6  7.6               8  10.3   NA 28.7
+#&gt;   4:              8  23.3                4  8.7               8  10.3   NA 24.1
+#&gt;   5:              8    NA                0  7.5               8  10.8   NA 24.6
+#&gt;  ---                                                                           
+#&gt; 361:              8  25.3                5  7.2               8  11.8   NA 22.1
+#&gt; 362:              8    NA                0 11.2               8  14.4   NA 21.5
+#&gt; 363:              8    NA                0  6.6               8   9.3   NA 24.0
+#&gt; 364:              8    NA                0  7.2               8   9.3   NA 26.5
+#&gt; 365:              8    NA                0  7.5               8   9.3   NA 26.5
+#&gt;      MAX_ATTRIBUTES  MIN MIN_ATTRIBUTES PRCP PRCP_ATTRIBUTES SNDP I_FOG
+#&gt;   1:           &lt;NA&gt; 17.8           &lt;NA&gt;  1.5               G   NA    NA
+#&gt;   2:           &lt;NA&gt; 19.1           &lt;NA&gt;  0.3               G   NA    NA
+#&gt;   3:           &lt;NA&gt; 19.3              * 19.8               G   NA    NA
+#&gt;   4:           &lt;NA&gt; 16.9              *  1.0               G   NA    NA
+#&gt;   5:           &lt;NA&gt; 16.7           &lt;NA&gt;  0.3               G   NA    NA
+#&gt;  ---                                                                   
+#&gt; 361:           &lt;NA&gt; 17.9              * 42.9               G   NA    NA
+#&gt; 362:           &lt;NA&gt; 15.4              *  0.3               G   NA    NA
+#&gt; 363:           &lt;NA&gt; 15.0           &lt;NA&gt;  0.0               G   NA    NA
+#&gt; 364:           &lt;NA&gt; 15.0           &lt;NA&gt;  0.0               G   NA    NA
+#&gt; 365:           &lt;NA&gt; 16.5           &lt;NA&gt;  0.0               G   NA    NA
+#&gt;      I_RAIN_DRIZZLE I_SNOW_ICE I_HAIL I_THUNDER I_TORNADO_FUNNEL  EA  ES   RH
+#&gt;   1:             NA         NA     NA        NA               NA 2.0 2.5 81.5
+#&gt;   2:             NA         NA     NA        NA               NA 2.2 2.8 79.2
+#&gt;   3:             NA         NA     NA        NA               NA 2.2 2.5 85.7
+#&gt;   4:             NA         NA     NA        NA               NA 1.9 2.2 85.4
+#&gt;   5:             NA         NA     NA        NA               NA 1.9 2.4 77.3
+#&gt;  ---                                                                         
+#&gt; 361:             NA         NA     NA        NA               NA 2.0 2.2 90.4
+#&gt; 362:             NA         NA     NA        NA               NA 1.7 2.0 82.6
+#&gt; 363:             NA         NA     NA        NA               NA 1.7 2.3 75.8
+#&gt; 364:             NA         NA     NA        NA               NA 1.8 2.5 71.8
+#&gt; 365:             NA         NA     NA        NA               NA 1.8 2.5 71.3</div><div class='input'>
+<span class='co'># Download weather data for the year 1929</span>
+<span class='op'>(</span><span class='va'>w_1929</span> <span class='op'>&lt;-</span> <span class='fu'>get_GSOD</span><span class='op'>(</span>years <span class='op'>=</span> <span class='fl'>1929</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;              STNID    NAME CTRY   COUNTRY_NAME ISO2C ISO3C STATE LATITUDE
+#&gt;    1: 030050-99999 LERWICK   UK UNITED KINGDOM    GB   GBR         60.133
+#&gt;    2: 030050-99999 LERWICK   UK UNITED KINGDOM    GB   GBR         60.133
+#&gt;    3: 030050-99999 LERWICK   UK UNITED KINGDOM    GB   GBR         60.133
+#&gt;    4: 030050-99999 LERWICK   UK UNITED KINGDOM    GB   GBR         60.133
+#&gt;    5: 030050-99999 LERWICK   UK UNITED KINGDOM    GB   GBR         60.133
+#&gt;   ---                                                                    
+#&gt; 2077: 990061-99999    &lt;NA&gt; &lt;NA&gt;           &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;       NA
+#&gt; 2078: 990061-99999    &lt;NA&gt; &lt;NA&gt;           &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;       NA
+#&gt; 2079: 990061-99999    &lt;NA&gt; &lt;NA&gt;           &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;       NA
+#&gt; 2080: 990061-99999    &lt;NA&gt; &lt;NA&gt;           &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;       NA
+#&gt; 2081: 990061-99999    &lt;NA&gt; &lt;NA&gt;           &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;       NA
+#&gt;       LONGITUDE ELEVATION    BEGIN      END   YEARMODA YEAR MONTH DAY YDAY TEMP
+#&gt;    1:    -1.183        84 19291001 20210116 1929-10-01 1929    10   1  274  7.4
+#&gt;    2:    -1.183        84 19291001 20210116 1929-10-02 1929    10   2  275  9.7
+#&gt;    3:    -1.183        84 19291001 20210116 1929-10-03 1929    10   3  276  9.4
+#&gt;    4:    -1.183        84 19291001 20210116 1929-10-04 1929    10   4  277  7.6
+#&gt;    5:    -1.183        84 19291001 20210116 1929-10-05 1929    10   5  278  8.1
+#&gt;   ---                                                                          
+#&gt; 2077:        NA         3       NA       NA 1929-12-26 1929    12  26  360 18.7
+#&gt; 2078:        NA         3       NA       NA 1929-12-27 1929    12  27  361 20.6
+#&gt; 2079:        NA         3       NA       NA 1929-12-29 1929    12  29  363 18.4
+#&gt; 2080:        NA         3       NA       NA 1929-12-30 1929    12  30  364 16.8
+#&gt; 2081:        NA         3       NA       NA 1929-12-31 1929    12  31  365 15.5
+#&gt;       TEMP_ATTRIBUTES DEWP DEWP_ATTRIBUTES    SLP SLP_ATTRIBUTES  STP
+#&gt;    1:               4  4.4               4 1001.6              4   NA
+#&gt;    2:               4  7.3               4  977.6              4   NA
+#&gt;    3:               4  5.4               4  975.7              4   NA
+#&gt;    4:               4  3.6               4  992.0              4   NA
+#&gt;    5:               4  5.3               4  997.8              4   NA
+#&gt;   ---                                                                
+#&gt; 2077:              24  7.2              24     NA              0 14.5
+#&gt; 2078:              24 14.0              24     NA              0 13.1
+#&gt; 2079:              24 15.8              24     NA              0 15.3
+#&gt; 2080:              24 14.5              24     NA              0 16.7
+#&gt; 2081:              24 13.0              24     NA              0 17.7
+#&gt;       STP_ATTRIBUTES VISIB VISIB_ATTRIBUTES WDSP WDSP_ATTRIBUTES MXSPD GUST
+#&gt;    1:              0  27.5                4  2.3               4   4.6   NA
+#&gt;    2:              0  15.0                4  9.0               4  15.4   NA
+#&gt;    3:              0  17.5                4  5.1               4  12.3   NA
+#&gt;    4:              0  10.0                4  7.8               4  19.0   NA
+#&gt;    5:              0  12.6                4  3.7               4   6.7   NA
+#&gt;   ---                                                                      
+#&gt; 2077:             24   0.0               24   NA               0    NA   NA
+#&gt; 2078:             24   0.0               24   NA               0    NA   NA
+#&gt; 2079:             24   0.0               24   NA               0    NA   NA
+#&gt; 2080:             24   0.0               24   NA               0    NA   NA
+#&gt; 2081:             24   0.0               24   NA               0    NA   NA
+#&gt;        MAX MAX_ATTRIBUTES  MIN MIN_ATTRIBUTES PRCP PRCP_ATTRIBUTES SNDP I_FOG
+#&gt;    1: 10.6           &lt;NA&gt;  6.7              *    0               I   NA    NA
+#&gt;    2: 11.7              *  6.7           &lt;NA&gt;   NA            &lt;NA&gt;   NA    NA
+#&gt;    3: 11.7           &lt;NA&gt;  7.8           &lt;NA&gt;   NA            &lt;NA&gt;   NA    NA
+#&gt;    4: 11.7           &lt;NA&gt;  6.7           &lt;NA&gt;   NA            &lt;NA&gt;   NA    NA
+#&gt;    5:  8.9              *  6.1           &lt;NA&gt;   NA            &lt;NA&gt;   NA    NA
+#&gt;   ---                                                                        
+#&gt; 2077: 21.3              * 17.4              *    0               I   NA    NA
+#&gt; 2078: 23.0              * 18.5              *    0               I   NA    NA
+#&gt; 2079: 20.7              * 16.9              *    0               I   NA    NA
+#&gt; 2080: 18.0              * 15.7              *    0               I   NA    NA
+#&gt; 2081: 17.4              * 14.6              *    0               I   NA    NA
+#&gt;       I_RAIN_DRIZZLE I_SNOW_ICE I_HAIL I_THUNDER I_TORNADO_FUNNEL  EA  ES   RH
+#&gt;    1:             NA         NA     NA        NA               NA 0.8 1.0 81.3
+#&gt;    2:             NA         NA     NA        NA               NA 1.0 1.2 85.0
+#&gt;    3:             NA         NA     NA        NA               NA 0.9 1.2 76.1
+#&gt;    4:             NA         NA     NA        NA               NA 0.8 1.0 75.8
+#&gt;    5:             NA         NA     NA        NA               NA 0.9 1.1 82.5
+#&gt;   ---                                                                         
+#&gt; 2077:             NA         NA     NA        NA               NA 1.0 2.2 47.1
+#&gt; 2078:             NA         NA     NA        NA               NA 1.6 2.4 65.9
+#&gt; 2079:             NA         NA     NA        NA               NA 1.8 2.1 84.8
+#&gt; 2080:             NA         NA     NA        NA               NA 1.6 1.9 86.3
+#&gt; 2081:             NA         NA     NA        NA               NA 1.5 1.8 85.1</div><div class='input'>
+<span class='co'># Download weather data for the year 1929 for Ireland</span>
+<span class='op'>(</span><span class='va'>ie_1929</span> <span class='op'>&lt;-</span> <span class='fu'>get_GSOD</span><span class='op'>(</span>years <span class='op'>=</span> <span class='fl'>1929</span>, country <span class='op'>=</span> <span class='st'>"Ireland"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;             STNID                 NAME CTRY COUNTRY_NAME ISO2C ISO3C STATE
+#&gt;   1: 039530-99999 VALENTIA OBSERVATORY   EI      IRELAND    IE   IRL      
+#&gt;   2: 039530-99999 VALENTIA OBSERVATORY   EI      IRELAND    IE   IRL      
+#&gt;   3: 039530-99999 VALENTIA OBSERVATORY   EI      IRELAND    IE   IRL      
+#&gt;   4: 039530-99999 VALENTIA OBSERVATORY   EI      IRELAND    IE   IRL      
+#&gt;   5: 039530-99999 VALENTIA OBSERVATORY   EI      IRELAND    IE   IRL      
+#&gt;  ---                                                                      
+#&gt; 265: 039800-99999           MALIN HEAD   EI      IRELAND    IE   IRL      
+#&gt; 266: 039800-99999           MALIN HEAD   EI      IRELAND    IE   IRL      
+#&gt; 267: 039800-99999           MALIN HEAD   EI      IRELAND    IE   IRL      
+#&gt; 268: 039800-99999           MALIN HEAD   EI      IRELAND    IE   IRL      
+#&gt; 269: 039800-99999           MALIN HEAD   EI      IRELAND    IE   IRL      
+#&gt;      LATITUDE LONGITUDE ELEVATION    BEGIN      END   YEARMODA YEAR MONTH DAY
+#&gt;   1:   51.933   -10.250        30 19260102 20210116 1929-10-01 1929    10   1
+#&gt;   2:   51.933   -10.250        30 19260102 20210116 1929-10-02 1929    10   2
+#&gt;   3:   51.933   -10.250        30 19260102 20210116 1929-10-03 1929    10   3
+#&gt;   4:   51.933   -10.250        30 19260102 20210116 1929-10-04 1929    10   4
+#&gt;   5:   51.933   -10.250        30 19260102 20210116 1929-10-05 1929    10   5
+#&gt;  ---                                                                         
+#&gt; 265:   55.367    -7.333        25 19260701 20210116 1929-12-27 1929    12  27
+#&gt; 266:   55.367    -7.333        25 19260701 20210116 1929-12-28 1929    12  28
+#&gt; 267:   55.367    -7.333        25 19260701 20210116 1929-12-29 1929    12  29
+#&gt; 268:   55.367    -7.333        25 19260701 20210116 1929-12-30 1929    12  30
+#&gt; 269:   55.367    -7.333        25 19260701 20210116 1929-12-31 1929    12  31
+#&gt;      YDAY TEMP TEMP_ATTRIBUTES DEWP DEWP_ATTRIBUTES    SLP SLP_ATTRIBUTES STP
+#&gt;   1:  274 11.8               5  9.2               4 1011.8              4  NA
+#&gt;   2:  275 13.0               5  7.5               4 1001.3              4  NA
+#&gt;   3:  276 11.4               4  4.6               4 1000.2              4  NA
+#&gt;   4:  277  7.4               5  5.9               4 1002.9              5  NA
+#&gt;   5:  278  9.7               5  6.7               4  993.4              5  NA
+#&gt;  ---                                                                         
+#&gt; 265:  361  5.2               4  3.6               4  996.0              4  NA
+#&gt; 266:  362  3.1               5  2.8               4  991.6              5  NA
+#&gt; 267:  363  7.4               4  5.4               4  978.1              4  NA
+#&gt; 268:  364  5.7               5  4.7               4  997.2              5  NA
+#&gt; 269:  365  6.6               5  3.9               4 1010.8              5  NA
+#&gt;      STP_ATTRIBUTES VISIB VISIB_ATTRIBUTES WDSP WDSP_ATTRIBUTES MXSPD GUST  MAX
+#&gt;   1:              0  20.8                5  6.9               5  15.4   NA 15.6
+#&gt;   2:              0  26.1                5  9.9               5  12.3   NA 16.7
+#&gt;   3:              0  27.5                4 10.4               4  19.0   NA 14.4
+#&gt;   4:              0  22.9                5  6.8               5   9.3   NA 12.8
+#&gt;   5:              0  26.1                5  4.7               5   9.3   NA 12.8
+#&gt;  ---                                                                           
+#&gt; 265:              0  12.6                4  6.9               4   9.3   NA  7.8
+#&gt; 266:              0   8.9                5  7.2               5   9.3   NA  5.6
+#&gt; 267:              0  12.6                4 13.1               4  15.4   NA 10.6
+#&gt; 268:              0  20.0                5  6.9               5   9.3   NA  7.8
+#&gt; 269:              0  20.0                5 10.0               5  12.3   NA  7.8
+#&gt;      MAX_ATTRIBUTES  MIN MIN_ATTRIBUTES PRCP PRCP_ATTRIBUTES SNDP I_FOG
+#&gt;   1:              *  6.7           &lt;NA&gt;  1.0               E   NA     1
+#&gt;   2:           &lt;NA&gt; 11.7           &lt;NA&gt;  2.0               E   NA     1
+#&gt;   3:           &lt;NA&gt;  9.4           &lt;NA&gt;   NA            &lt;NA&gt;   NA     1
+#&gt;   4:           &lt;NA&gt; -2.2              *  2.0               E   NA     1
+#&gt;   5:           &lt;NA&gt;  7.8           &lt;NA&gt;  7.1               E   NA     1
+#&gt;  ---                                                                   
+#&gt; 265:           &lt;NA&gt;  3.9           &lt;NA&gt;   NA            &lt;NA&gt;   NA     1
+#&gt; 266:           &lt;NA&gt;  1.7           &lt;NA&gt;  1.0               E   NA     1
+#&gt; 267:              *  4.4           &lt;NA&gt;   NA            &lt;NA&gt;   NA     1
+#&gt; 268:              *  3.9           &lt;NA&gt;  0.5               E   NA     1
+#&gt; 269:           &lt;NA&gt;  2.8           &lt;NA&gt;  5.1               E   NA     1
+#&gt;      I_RAIN_DRIZZLE I_SNOW_ICE I_HAIL I_THUNDER I_TORNADO_FUNNEL  EA  ES   RH
+#&gt;   1:             NA         NA     NA        NA               NA 1.2 1.4 84.1
+#&gt;   2:             NA         NA     NA        NA               NA 1.0 1.5 69.3
+#&gt;   3:             NA         NA     NA        NA               NA 0.8 1.3 63.0
+#&gt;   4:             NA         NA     NA        NA               NA 0.9 1.0 90.2
+#&gt;   5:             NA         NA     NA        NA               NA 1.0 1.2 81.6
+#&gt;  ---                                                                         
+#&gt; 265:             NA         NA     NA        NA               NA 0.8 0.9 89.4
+#&gt; 266:             NA         NA     NA        NA               NA 0.7 0.8 97.9
+#&gt; 267:             NA         NA     NA        NA               NA 0.9 1.0 87.1
+#&gt; 268:             NA         NA     NA        NA               NA 0.9 0.9 93.3
+#&gt; 269:             NA         NA     NA        NA               NA 0.8 1.0 82.9</div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -405,7 +477,7 @@ of saturation vapor pressure. Journal of Applied Meteorology and Climatology,
 
       <footer>
       <div class="copyright">
-  <p>Developed by Adam Sparks, Tomislav Hengl, Andrew Nelson.</p>
+  <p>Developed by Adam H. Sparks, Tomislav Hengl, Andrew Nelson.</p>
 </div>
 
 <div class="pkgdown">

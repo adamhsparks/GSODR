@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">GSODR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
       </span>
     </div>
 
@@ -125,13 +125,34 @@
       <small>Source: <a href='https://github.com/ropensci/GSODR/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="gsodr-310" class="section level1">
+<h1 class="page-header" data-toc-text="3.1.0">
+<a href="#gsodr-310" class="anchor"></a>GSODR 3.1.0<small> 2021-03-21 </small>
+</h1>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li><p>Include columns for COUNTRY_NAME (country name in English), ISO2C and ISO3C in the final output from <code><a href="../reference/get_GSOD.html">get_GSOD()</a></code> and <code><a href="../reference/reformat_GSOD.html">reformat_GSOD()</a></code>.</p></li>
+<li><p>Diffs in the isd_history are now recorded in the <code>/data-raw/fetch_isd-history.md</code> file and shipped with GSODR as <code>isd_history.rda</code>, which can be viewed by using <code><a href="https://rdrr.io/r/base/load.html">load(system.file("extdata", "isd_diff.rda", package = "GSODR"))</a></code>.</p></li>
+<li><p>Update and improve documentation to reflect country name and ISO code columns.</p></li>
+</ul>
+</div>
+<div id="minor-improvements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-improvements" class="anchor"></a>Minor improvements</h2>
+<ul>
+<li>Update NCEI data usage statement.</li>
+</ul>
+</div>
+</div>
     <div id="gsodr-300" class="section level1">
 <h1 class="page-header" data-toc-text="3.0.0">
 <a href="#gsodr-300" class="anchor"></a>GSODR 3.0.0<small> 2021-01-24 </small>
 </h1>
-<div id="major-changes" class="section level2">
+<div id="breaking-changes" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes" class="anchor"></a>Major changes</h2>
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
 <li>Remove parallel processing functionality. A bug that I was unable to properly debug with <code>future.apply::future_lapply()</code> caused the <code><a href="../reference/get_GSOD.html">get_GSOD()</a></code> and <code><a href="../reference/reformat_GSOD.html">reformat_GSOD()</a></code> functions to run without completing or responding was fixed by simply using R’s base <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> function. If parallel processing is needed, users should implement their own solutions to download and process in parallel.</li>
 </ul>
@@ -191,9 +212,9 @@
 <h1 class="page-header" data-toc-text="2.1.0">
 <a href="#gsodr-v210" class="anchor"></a>GSODR v2.1.0<small> 2020-04-17 </small>
 </h1>
-<div id="major-changes-1" class="section level2">
+<div id="major-changes" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-1" class="anchor"></a>Major changes</h2>
+<a href="#major-changes" class="anchor"></a>Major changes</h2>
 <ul>
 <li>Implement new calculations for EA, ES and RH using improved August-Roche-Magnus approximation (Alduchov &amp; Eskridge 1996). HT Rich Iannone for his use in <a href="https://cran.r-project.org/package=stationaRy">stationaRy</a>. This will result in different EA, ES and RH calculations from the prior versions of GSODR. However, this new implementation should be more accurate as discussed in (Alduchov &amp; Eskridge 1996).</li>
 </ul>
@@ -233,9 +254,9 @@
 <li><p><code><a href="../reference/get_GSOD.html">get_GSOD()</a></code> checks the number of stations being requested. If the number is &gt;10, the entire annual file will be downloaded and requested stations will then be selected and returned. This saves time by reducing the number of requests made to the server. Users should not see any difference other than quicker responses for a large number of requested stations.</p></li>
 </ul>
 </div>
-<div id="major-changes-2" class="section level2">
+<div id="major-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-2" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-1" class="anchor"></a>Major changes</h2>
 <ul>
 <li>Requires R &gt;= 3.5.0 due to the storage of .Rds files using the latest version</li>
 </ul>
@@ -253,9 +274,9 @@
 <code><a href="../reference/get_GSOD.html">get_GSOD()</a></code> now uses https rather than FTP server, correcting bug where the data could not be downloaded any longer</li>
 </ul>
 </div>
-<div id="major-changes-3" class="section level2">
+<div id="major-changes-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-3" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-2" class="anchor"></a>Major changes</h2>
 <ul>
 <li><p>Corrected elevation values are no longer available from GSODR</p></li>
 <li><p>Objects are returned as <code>data.table</code> objects</p></li>
@@ -407,9 +428,9 @@
 <h1 class="page-header" data-toc-text="1.2.0">
 <a href="#gsodr-120" class="anchor"></a>GSODR 1.2.0<small> 2018-03-30 </small>
 </h1>
-<div id="major-changes-4" class="section level2">
+<div id="major-changes-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-4" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-3" class="anchor"></a>Major changes</h2>
 <ul>
 <li><p>Remove ability to export files from <code><a href="../reference/get_GSOD.html">get_GSOD()</a></code> to slim down the package dependencies and this functions parameters. Examples of how to convert to a spatial object (both <em>sp</em> and <em>sf</em> are shown) and export ESRI Shapefiles and GeoPackage files are now included in the vignette.</p></li>
 <li><p>As a result of the previous point, the <em>sp</em> and <em>rgdal</em> packages are no longer Imports but are now in Suggests along with <em>sf</em> for examples in the GSOD vignette.</p></li>
@@ -491,9 +512,9 @@
 </li>
 </ul>
 </div>
-<div id="major-changes-5" class="section level2">
+<div id="major-changes-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-5" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-4" class="anchor"></a>Major changes</h2>
 <ul>
 <li><p>The <em>data.table</em> and <em>fields</em> packages are no longer imported. All internal functions now use <em>dplyr</em> or base R functionality, reducing the dependencies of <em>GSODR</em></p></li>
 <li><p>Any data frames returned by <em>GSODR</em> functions are returned as a <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> object</p></li>
@@ -527,9 +548,9 @@
 <li><p>Update example output in GSODR vignette where applicable</p></li>
 </ul>
 </div>
-<div id="major-changes-6" class="section level2">
+<div id="major-changes-5" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-6" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-5" class="anchor"></a>Major changes</h2>
 <ul>
 <li>Update internal stations list</li>
 </ul>
@@ -551,9 +572,9 @@
 <h1 class="page-header" data-toc-text="1.0.5">
 <a href="#gsodr-105" class="anchor"></a>GSODR 1.0.5<small> 2017-08-18 </small>
 </h1>
-<div id="major-changes-7" class="section level2">
+<div id="major-changes-6" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-7" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-6" class="anchor"></a>Major changes</h2>
 <ul>
 <li><p>Add welcome message on start-up regarding data use and sharing</p></li>
 <li><p>Update internal stations list</p></li>
@@ -579,9 +600,9 @@
 <h1 class="page-header" data-toc-text="1.0.4">
 <a href="#gsodr-104" class="anchor"></a>GSODR 1.0.4<small> 2017-07-23 </small>
 </h1>
-<div id="major-changes-8" class="section level2">
+<div id="major-changes-7" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-8" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-7" class="anchor"></a>Major changes</h2>
 <ul>
 <li><p>Data distributed with GSODR are now internal to the package and not externally exposed to the user</p></li>
 <li><p>Vignettes have been updated and improved with an improved order of information presented and some have been combined for easier use</p></li>
@@ -599,9 +620,9 @@
 <h1 class="page-header" data-toc-text="1.0.3">
 <a href="#gsodr-103" class="anchor"></a>GSODR 1.0.3<small> 2017-06-13 </small>
 </h1>
-<div id="major-changes-9" class="section level2">
+<div id="major-changes-8" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-9" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-8" class="anchor"></a>Major changes</h2>
 <ul>
 <li><p>Data for station locations and unique identifiers is now provided with the package on installation. Previously this was fetched each time from the ftp server.</p></li>
 <li><p>The station metadata can now be updated if necessary by using <code><a href="../reference/update_station_list.html">update_station_list()</a></code>, this change overwrites the internal data that were originally distributed with the package. This operation will fetch the latest list of stations and corresponding information from the NCEI ftp server. Any changes will be overwritten when the R package is updated, however, the package update should have the same or newer data included, so this should not be an issue.</p></li>
@@ -674,9 +695,9 @@
 <h1 class="page-header" data-toc-text="1.0.0">
 <a href="#gsodr-100" class="anchor"></a>GSODR 1.0.0<small> 2017-01-19 </small>
 </h1>
-<div id="major-changes-10" class="section level2">
+<div id="major-changes-9" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-10" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-9" class="anchor"></a>Major changes</h2>
 <ul>
 <li><p>The <code><a href="../reference/get_GSOD.html">get_GSOD()</a></code> function returns a <code>data.frame</code> object in the current R session with the option to save data to local disk</p></li>
 <li><p>Multiple stations can be specified for download rather than just downloading a single station or all stations</p></li>
@@ -832,9 +853,9 @@
 <li><p>Spelling corrections</p></li>
 </ul>
 </div>
-<div id="major-changes-11" class="section level2">
+<div id="major-changes-10" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-11" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-10" class="anchor"></a>Major changes</h2>
 <ul>
 <li><p>Include MIN/MAX flag column</p></li>
 <li><p>Station data is now included in package rather than downloading from NCDC every time get_GSOD() is run, this data has some corrections where stations with missing LAT/LON values or elevation are omitted, this is <strong>not</strong> the original complete station list provided by NCDC.</p></li>
@@ -917,9 +938,9 @@
 <h1 class="page-header" data-toc-text="0.1.1">
 <a href="#gsodr-011" class="anchor"></a>GSODR 0.1.1<small> 2016-04-20 </small>
 </h1>
-<div id="major-changes-12" class="section level2">
+<div id="major-changes-11" class="section level2">
 <h2 class="hasAnchor">
-<a href="#major-changes-12" class="anchor"></a>Major changes</h2>
+<a href="#major-changes-11" class="anchor"></a>Major changes</h2>
 <ul>
 <li><p>Now available on CRAN</p></li>
 <li><p>Add single quotes around possibly misspelled words and spell out comma-separated values and geographic information system rather than just using “CSV” or “GIS” in DESCRIPTION.</p></li>
@@ -949,7 +970,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Adam Sparks, Tomislav Hengl, Andrew Nelson.</p>
+  <p>Developed by Adam H. Sparks, Tomislav Hengl, Andrew Nelson.</p>
 </div>
 
 <div class="pkgdown">
